@@ -27,8 +27,15 @@ SIMULAR COM JS.
 */
 
 // forma reduzida : EXPERT
-const prices = [ ['notebook','5000'], ['muchila','220'], ['teclado','365'], ['mouse','75'] ]
+const prices = [ 
+    ['notebook','5000'], 
+    ['muchila','220'], 
+    ['teclado','365'], 
+    ['mouse','75'] 
+]
 const halfPrices = prices.map( price => '\n' + price[0] +' R$ '+ price[1] / 2 )
+
+//const halfPrices = prices.map( price => `'\n'  ${price[0]}  R$  ${price[1]} / 2` )
 
 
 // forma Tradicional
@@ -55,11 +62,39 @@ const valorPelaMetadedoPreco = valores.map(value => value / 2)
 
 /*============================================================================*/
 
+/*
+[02] 
+CASO DE USO
+
+Vamos construir uma ideia, uma loja para alcancar seus clientes, vai deixar todos os produtos acima de 700 reais pela 
+a metade do preço.
+*/
 
 
+const products = [
+    {name: 'notebook' , price: 2500},
+    {name: 'relogio' , price: 120},
+    {name: 'caneca' , price: 45}, 
+    {name: 'teclado mecanico' , price: 760},
+    {name: 'mouse' , price: 1500},
+    {name: 'Headphone' , price: 500},
+]
+
+const salesProducts = products.map( product => {
+    if(product.price > 700) {
+        return { name: product.name, price: product.price / 2 }
+    }
+    return product
+})
+
+// forma reduzida : EXPERT
+const salesProducts = products.map (
+    value => value.price > 400 ? {name: value.name, price: value.price / 2} : value
+)
 
 
-
+// console.log("Valores", products)
+// console.log("Valores metade do preco acima de 70", salesProducts)
 
 
 
